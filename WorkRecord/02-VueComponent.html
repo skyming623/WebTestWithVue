@@ -1,0 +1,29 @@
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">    
+    <script src="Scripts\vue.min.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>Vue Componet</h1>
+        <click-counter></click-counter>
+    </div>
+    <script>
+        Vue.component('click-counter',{
+            template:'<bunton @click="count++">{{count}}</bunton>',
+            data(){
+                return{
+                    count: 0
+                }
+            }
+        });
+        new Vue({
+            el:'#app'
+        });
+	</script>
+    <!--script src="/WorkRecord/Components/app.js"></@script-->
+</body>
+</html>
