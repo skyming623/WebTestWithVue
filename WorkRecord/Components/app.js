@@ -1,5 +1,5 @@
 Vue.component('click-counter',{
-    template:'<bunton @click="count++">{{count}}</bunton>',
+    template:'<button @click="count++">{{count}}</button>',
     data(){
         return{
             count: 0
@@ -8,4 +8,8 @@ Vue.component('click-counter',{
 });
 new Vue({
     el:'#app'
+});
+new Vue({
+    el:'#app3',
+    data
 });

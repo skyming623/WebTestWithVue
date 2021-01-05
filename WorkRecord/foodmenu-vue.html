@@ -1,0 +1,61 @@
+<html>
+<head>
+    <meta charset="UTF8"/>
+    <script src="https://unpkg.com/vue"></script>    
+    <style>
+     main,fieldset{
+        display: flex;
+    }
+    fieldset{
+        flex-flow: column wrap;
+        border-radius: 5px;
+    }
+    </style>
+</head>
+<body>
+    <title>下午茶訂餐系統</title><header>下午茶訂餐系統</header>
+    <main>
+        <fieldset>
+            <legend>新增訂單</legend>
+                <label>我是誰:<input type="text" :value="who"/></label>
+                {{what}}:
+                <label v-for="item in items"><input type="radio" name="what">{{item.name}}</label>
+                <label>{{count}}份:<input type="number" :value="count" min="1" max="8">
+                    <button v-if="who=='' || sum==0 " disabled="disabled">加入${{count}}</button>
+                    <button v-else >加入${{count}}</button>
+                </label>
+        </fieldset>
+        <fieldset>
+            <legend>目前訂單(總金額:$260)</legend>
+                <label>搜尋:<input type="search"/><button>刪除</button></label>
+                <select>
+                    <option>阿嘎訂了1份真奶 花費100元</option>
+                    <option>阿嘎訂了2份假奶 花費100元</option>
+                    <option>阿嘎訂了3份線餅 花費60元</option>
+                </select>
+        </fieldset>
+    </main>
+    <script>
+        var app = new Vue({            
+            data:{
+            who:'阿嘎',
+            what:'吃什麼',
+            count:1,
+            sum:0,
+            items:[{
+                name:'真奶',price:100},
+                {name:'假奶',price:50},                
+                {name:'臭蛋燒',price:30},                
+                {name:'餡餅',price:20}
+                ],
+            order:[{item:{name:'真奶',price:100},count:1}]
+            },
+            method:{
+                input_checked:function(){
+                    return (who=='' || sum==0 ) ? true : false;                   
+                }
+            }
+        }).$mount('fieldset');
+    </script>
+</body>
+</html>

@@ -4,10 +4,12 @@ span
     /*outline-style: dashed;*/
     background-color: aqua;
 }
+main,fileset{
+    display: flex;  
+}
 .fieldset
 {
-width: 100%;
-
+    display: flex;
 }
 .class
 {

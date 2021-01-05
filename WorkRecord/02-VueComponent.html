@@ -1,13 +1,13 @@
 <html>
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">    
-    <!--script src="Scripts\vue.min.js"></!--script-->
-    <script src="https://unpkg.com/vue"></script>
+    <script src="/WorkRecord/Scripts/vue.min.js"></script>
+    <!--script src="https://unpkg.com/vue"></script-->
     <style>
 
     </style>
 </head>
-<body>
+<body>    
     <div id="app">
         <h1>Vue Componet</h1>
         <click-counter></click-counter>
@@ -16,6 +16,9 @@
         <click-counter></click-counter>
     </div>
     <div id = "app2" >
+        <input-view></input-view>
+    </div>
+    <div id = "app3" >
         <input-view></input-view>
     </div>
     <!-- 1.直接使用COMPONENT
@@ -40,7 +43,7 @@
             <button @click="count++">{{count}}</button>
         </div>
     </script>
-    <script type="text/x\template" id="input-template">
+    <script type="text/x-template" id="input-template">
         <div id="app2">
             <input value="1">
             <input value="2">

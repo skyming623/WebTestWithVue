@@ -1,0 +1,53 @@
+<html>
+<head>
+    <meta charset="UTF8"/>
+    <script src="https://unpkg.com/vue"></script>
+    <!--link rel="stylesheet" type="text/css" href="/WorkRecord/CSS/mystyle.css" /-->
+    <style>
+     main,fieldset{
+        display: flex;
+    }
+    fieldset{
+        flex-flow: column wrap;
+        border-radius: 5px;
+    }
+    </style>
+</head>
+<body>
+    <title>下午茶訂餐系統</title><header>下午茶訂餐系統</header>
+    <main>
+        <fieldset>
+            <legend>新增訂單</legend>
+                <label>我是誰:<input type="text" value="阿嘎"/></label>
+                吃什麼:
+                <label><input type="radio" id="milktea" name="what" >真奶</label>
+                <label><input type="radio"  id="fakemilktea" name="what">假奶</label>
+                <label><input type="radio" id="eggfood" name="what" checked>臭蛋燒</label>
+                <label><input type="radio"  id="bread" name="what"  >餡餅$20</label>
+                <label>幾份:<input type="number" value="3" min="3" max="8"><button>加入$90</button></label>
+        </fieldset>
+        <fieldset>
+            <legend>目前訂單(總金額:$260)</legend>
+                <label>搜尋:<input type="search"/><button>刪除</button></label>
+                <select>
+                    <option>阿嘎訂了1份真奶 花費100元</option>
+                    <option>阿嘎訂了2份假奶 花費100元</option>
+                    <option>阿嘎訂了3份線餅 花費60元</option>
+                </select>
+        </fieldset>
+    </main>
+    <script>
+        var app = new Vue({            
+            data:{
+            items:[{
+                name:'真奶',price:100},
+                {name:'假奶',price:100},                
+                {name:'臭蛋燒',price:100},                
+                {name:'餡餅',price:100},                
+                {name:'',price:100}
+            ]
+            }
+        }).$mount('fieldset');
+    </script>
+</body>
+</html>
