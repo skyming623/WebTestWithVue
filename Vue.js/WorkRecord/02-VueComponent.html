@@ -1,0 +1,52 @@
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">    
+    <!--script src="Scripts\vue.min.js"></!--script-->
+    <script src="https://unpkg.com/vue"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>Vue Componet</h1>
+        <click-counter></click-counter>
+        <click-counter></click-counter>
+        <click-counter></click-counter>
+        <click-counter></click-counter>
+    </div>
+    <div id = "app2" >
+        <input-view></input-view>
+    </div>
+    <!-- 1.直接使用COMPONENT
+    <script>
+        Vue.component('click-counter',{
+            template:'<bunton @click="count++">{{count}}</bunton>',
+            data(){
+                return{
+                    count: 0
+                }
+            }
+        });
+        new Vue({
+            el:'#app'
+        });
+	</script>
+    -->
+    <!-- 2.引用COMPONENT START   -->
+    <script type="text/x-template" id="click-counter-template">
+        <div id="app">
+            <p>the count is</p>
+            <button @click="count++">{{count}}</button>
+        </div>
+    </script>
+    <script type="text/x\template" id="input-template">
+        <div id="app2">
+            <input value="1">
+            <input value="2">
+        </div>
+    </script>
+    <!-- 2.引用COMPONENT END     -->
+    <script src="/WorkRecord/Components/app.js"></script>
+</body>
+</html>

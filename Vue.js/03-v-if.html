@@ -1,0 +1,35 @@
+<html>
+<head>
+	
+</head>
+<body>
+
+
+<div id ="app">	
+    <input v-model="score"></input>
+    <p v-if="score >= 60">分數:{{score}},及格</p>
+    <p v-else="score < 60">分數:{{score}},不及格</p>
+    <p v-show="score < 60">分數:{{score}},不及格</p>	
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+
+<script>
+
+	var app = new Vue({
+		el:'#app',
+		data:{
+			message: 'Hello Vue.js',
+			score :60,
+			loading:false
+		},
+		methods:{
+			reverseMessage: function () {
+				this.message2 = this.message2.split('').reverse().join('')				
+			}
+		}
+	});
+
+	</script>
+</body>
+</html>
