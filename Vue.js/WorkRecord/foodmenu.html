@@ -1,0 +1,44 @@
+<html>
+<head>
+    <meta charset="UTF8"/>
+    <link rel="stylesheet" type="text/css" href="/WorkRecord/CSS/mystyle.css" />    
+</head>
+<body>
+    <a>下午茶訂餐系統</a>
+    <form class="formclass" id="menu" action="foodmenu.html" method="post">
+        <fieldset>
+            <legend>新增訂單</legend>
+            <div class="container">
+                <div>        
+                    <a>我是誰:</a>
+                    <input type="text"/>
+                    <a>吃什麼:</a><br/>
+                    <input type="radio" id="milktea" name="milktea" value="100">真奶<br/>
+                    <input type="radio"  id="fakemilktea" name="fakemilktea"  value="50">假奶<br/>
+                    <input type="radio" id="eggfood" name="eggfood" value="30">臭蛋燒<br/>
+                    <input type="radio"  id="bread" name="bread"  value="20">餡餅$20<br/>
+                    <a>幾份:<input type="text" id="itemcounts"></a>
+                    <button>加入</button>
+                </div>
+    
+            </div>
+        </fieldset>
+
+    </form>
+    <form class="formclass" id="order">
+        <fieldset>
+            <legend>目前訂單(總金額:)</legend>
+            <div class="container">
+                <div>        
+                    <a>搜尋:</a>
+                    <input type="text"/>
+                    <button>刪除</button><br/>
+                    <textarea rows="3">
+
+                    </textarea>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>

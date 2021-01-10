@@ -1,0 +1,42 @@
+<html>
+<head></head>
+<body>
+    <!--
+    <div id ="app2">
+        <p>Success</p>
+        <p v-if="loading">ERROR</p>
+        <p v-show="loading">ERROR2</p>
+    </div>
+    -->
+    <div id="app">
+        <table>
+          <tr is="example-item"></tr>
+        </table>
+    </div>
+    <script type="text/x-template" id="my_component_with_template">
+        <tr>
+          <td>A</td>
+          <td>B</td>
+          <td>C</td>
+        </tr>
+      </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+<script>
+    var app2 = new Vue({
+        el:'#app2',
+        data:{         
+            loading:false
+        }
+    });
+        var vm = new Vue({
+        el: '#app',
+        delimiters: ['${', '}'],
+        components: {
+            'example-item': {
+            template: '#my_component_with_template'
+            }
+        }
+        });
+    </script>
+</body>
+</html>
