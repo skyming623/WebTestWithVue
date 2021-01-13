@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+  main, fieldset { display: flex }
+  fieldset { flex-flow: column wrap; border-radius: 5px; }
+</style>
+<script src="https://vuejs.org/js/vue.js">'Vue2'</script>
+<div id="app">
+  <title>{{title}}</title><header>{{title}}</header>
+  <main>
+    <fieldset><legend>新增訂單</legend>
+      <label>我是誰：<input v-model="who" size="10"/></label>
+      吃什麼：
+      <label v-for="item in items">
+        <input v-model="what" :value="item" type="radio" name="what"/>{{item.name}} ${{item.price}}
+      </label>
+      <label>幾份：<input v-model="count" type="number" value="3" min="1" max="8"/>
+        <!--button-- :disabled="!who || what.price*count<=0">加入${{what.price*count}}</button-->
+        <button :disabled="!who || what.price*count<=0" @click="addorder" >加入${{getsum}}</button>
+      </label>
+    </fieldset>
+    <fieldset><legend>目前訂單(總金額：${{order.reduce((sum,{what,count})=>sum+what.price*count,0)}})</legend>
+      <label>搜尋：<input type="search"/><button>刪除</button></label>
+      <select size="7" multiple>
+        <option v-for="{who,what,count} in order">{{who}}訂了{{count}}份{{what.name}} 花費{{what.price*count}}元</option>
+        <!--option v-for="{who,what,count} in order">{{who}}訂了{{count}}份{{what.name}} 花費{{app.getsum}}元</!--option-->
+      </select>
+    </fieldset>
+  </main>
+</div>
+<script type="module">
+  //import VueUtil from './vue-util.js';
+  const ITEM = [{name: '真奶', price: 100}, {name: '假奶', price: 50}, {name: '臭蛋燒', price: 30}, {name: '線餅', price: 20}];
+  /*
+  VueUtil.mountVue('#app', {
+    data: ()=>({
+      title: '下午茶訂單系統',
+      items: ITEM,
+      order: [{who: '阿嘎', what: ITEM[0], count: 1},
+        {who: '阿嘎', what: ITEM[1], count: 2},
+        {who: '阿嘎', what: ITEM[3], count: 3}],
+      who: undefined, what: ITEM[0], count: 1
+    })
+  });
+  */
+  /*
+  var app = new Vue({
+      data: {
+        title: '123',
+        items: ITEM,
+        order: [{who: '阿嘎', what: ITEM[0], count: 1},
+                {who: '阿嘎', what: ITEM[1], count: 2},
+                {who: '阿嘎', what: ITEM[3], count: 3}],
+        who: undefined, what: ITEM[0], count: 1
+      }
+  })
+  */
+  var app = new Vue({
+      data:()=>({
+        a:1,
+        title: '下午茶訂單系統',
+        items: ITEM,
+        order: [{who: '阿嘎', what: ITEM[0], count: 1},
+                {who: '阿嘎', what: ITEM[1], count: 2},
+                {who: '阿嘎', what: ITEM[3], count: 3}],
+        who: undefined,
+        what: ITEM[0], 
+        count: 1,
+        sum: 0
+      }),
+      methods:{
+        addorder: function(){
+          this.order.push({who: this.who, what: this.what, count: this.count});
+        }
+      },
+      computed:{
+        getsum:function(){
+          this.sum = this.what.price*this.count;
+          return this.sum;
+        }
+      }
+  })
+  app.$mount('#app');
+  
+</script>
